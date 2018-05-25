@@ -2413,3 +2413,21 @@ Migrating to CreateArticles (20180525123801)
   [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-25 12:40:06.261916"], ["updated_at", "2018-05-25 12:40:06.261916"]]
   [1m[35m (70.0ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/articles" for 127.0.0.1 at 2018-05-25 16:09:46 +0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mR6CzI+6F5Fv1uKJN1Cec+pStAxZzzcFMkLc3/s6fewLBKAH1D6Mo2b8HA6pvHvKzKSyPZUDb802jslobT/Urw==", "article"=>{"title"=>"", "text"=>""}, "commit"=>"Save Article"}
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 4.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/articles_controller.rb:10:in `create'
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-25 16:09:57 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 490ms (Views: 470.3ms | ActiveRecord: 0.0ms)
+
+

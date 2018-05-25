@@ -7,13 +7,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-   render plain: params[:article].inspect
-   end
-
-  def edit
-  end
-
-  def destroy
+  @article = Article.new(params[:article])
+ 
+  @article.save
+  redirect_to @article
   end
 
   private
