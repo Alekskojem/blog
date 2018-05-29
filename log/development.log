@@ -2607,3 +2607,108 @@ Processing by ArticlesController#new as HTML
 Completed 200 OK in 136ms (Views: 116.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-29 10:57:21 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 213ms (Views: 161.5ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-05-29 10:58:07 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tJ+eMl9/Hgsh2WovS8FSrQDZJJky/celqrPSl63Xm9smhbz5BPuFOSjzlKjVLbcUJi8iqP4xn22uf8cgO9IymA==", "article"=>{"title"=>"the articles new!", "text"=>"the new article"}, "commit"=>"Save Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "the articles new!"], ["text", "the new article"], ["created_at", "2018-05-29 07:58:07.307197"], ["updated_at", "2018-05-29 07:58:07.307197"]]
+  [1m[35m (75.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/3
+Completed 302 Found in 90ms (ActiveRecord: 80.0ms)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2018-05-29 10:58:07 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 170ms (Views: 147.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-05-29 10:58:12 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 141ms (Views: 120.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/2/edit" for 127.0.0.1 at 2018-05-29 10:58:27 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 141ms (Views: 117.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/3/edit" for 127.0.0.1 at 2018-05-29 10:58:34 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 125ms (Views: 114.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-05-29 10:58:37 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 142ms (Views: 124.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/2/edit" for 127.0.0.1 at 2018-05-29 10:58:41 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 141ms (Views: 120.6ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/articles/2" for 127.0.0.1 at 2018-05-29 10:58:55 +0300
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rrJnqO9eR8At6J0tkMy5wioKgmiC4twOe60/LTtAbEQ14ysGYHcebCf5EU0A3XY7cRTXCEoaKuZcdBKgIq7s2w==", "article"=>{"title"=>"ertyu", "text"=>"the ertypxfgdf"}, "commit"=>"Update Article", "id"=>"2"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (12.0ms)[0m  [1m[33mUPDATE "articles" SET "text" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["text", "the ertypxfgdf"], ["updated_at", "2018-05-29 07:58:55.241045"], ["id", 2]]
+  [1m[35m (77.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 114ms (ActiveRecord: 89.0ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-05-29 10:58:55 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 134ms (Views: 115.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-05-29 10:58:58 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 152ms (Views: 132.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-29 10:59:11 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 144ms (Views: 136.2ms | ActiveRecord: 0.0ms)
+
+
