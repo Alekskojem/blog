@@ -2989,3 +2989,65 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 145ms (Views: 127.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:38:57 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered articles/show.html.erb within layouts/application (95.0ms)
+Completed 200 OK in 316ms (Views: 293.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/5/edit" for 127.0.0.1 at 2018-05-30 12:39:06 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (2.0ms)
+  Rendered articles/edit.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 183ms (Views: 153.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/articles/5" for 127.0.0.1 at 2018-05-30 12:39:14 +0300
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9eZpE2tjYZXD21LGLYWz4CcoU5g79W1Xc277+ekkaPBDHZgyweB11AUJi2zs4JunY00U1d0Z+9sw+OP/QI4lg==", "article"=>{"title"=>"Reading comments", "text"=>"Create and read comments for article"}, "commit"=>"Update Article", "id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (14.0ms)[0m  [1m[33mUPDATE "articles" SET "text" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["text", "Create and read comments for article"], ["updated_at", "2018-05-30 09:39:14.088347"], ["id", 5]]
+  [1m[35m (84.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 168ms (ActiveRecord: 99.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:39:14 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered articles/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 183ms (Views: 163.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles/5/comments" for 127.0.0.1 at 2018-05-30 12:40:13 +0300
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VygNWhYXPbNe3zIF4/SapyIcqxlpxjvyyQQic4kE/qbFMi+RTZOmgVf1zIJ9GH8eBOqtKKUKYzrNyDfEHwFX5Q==", "comment"=>{"commenter"=>"Yeah i see its", "body"=>"It`s really new comment for its article"}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", "Yeah i see its"], ["body", "It`s really new comment for its article"], ["article_id", 5], ["created_at", "2018-05-30 09:40:13.094810"], ["updated_at", "2018-05-30 09:40:13.094810"]]
+  [1m[35m (129.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 141ms (ActiveRecord: 131.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:40:13 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered articles/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 178ms (Views: 160.5ms | ActiveRecord: 0.0ms)
+
+
