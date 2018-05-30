@@ -2908,3 +2908,84 @@ config/routes.rb:8: syntax error, unexpected end-of-input, expecting keyword_end
 DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
 DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
 DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-30 12:31:05 +0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (141.0ms)
+  Rendered articles/new.html.erb within layouts/application (193.0ms)
+Completed 200 OK in 3357ms (Views: 2322.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-05-30 12:31:17 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 607ms (Views: 536.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-30 12:31:21 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (20.0ms)
+  Rendered articles/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 551ms (Views: 534.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-05-30 12:31:56 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0O76RKFB8291g+Bs2X7HsceQa5+K7i/a+p0tSvqqC93SgoHk43toHAOs2qO6Qj4MHi6wYroyXJ/FmrvYRt9Xkg==", "article"=>{"title"=>"Reading comments", "text"=>"Create adnd read comments for article"}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Reading comments"], ["text", "Create adnd read comments for article"], ["created_at", "2018-05-30 09:31:56.355653"], ["updated_at", "2018-05-30 09:31:56.355653"]]
+  [1m[35m (87.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 307ms (ActiveRecord: 89.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:31:56 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (2269.1ms)
+Completed 200 OK in 3138ms (Views: 2936.9ms | ActiveRecord: 18.0ms)
+
+
+Started POST "/articles/5/comments" for 127.0.0.1 at 2018-05-30 12:32:43 +0300
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"THCzZVLOv6qqngWjI7c5XI4UG7Jdxqq85osO7oQ0NG7eapGuCUokmKO0+yS9W9zlqOIdg5EK8nTiRxtZEjGdLQ==", "comment"=>{"commenter"=>"i read your article", "body"=>"its my comment for you articlr"}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", "i read your article"], ["body", "its my comment for you articlr"], ["article_id", 5], ["created_at", "2018-05-30 09:32:43.877442"], ["updated_at", "2018-05-30 09:32:43.877442"]]
+  [1m[35m (84.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 132ms (ActiveRecord: 85.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:32:43 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 318ms (Views: 298.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-05-30 12:32:49 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 200ms (Views: 183.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:32:56 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 145ms (Views: 127.4ms | ActiveRecord: 0.0ms)
+
+
