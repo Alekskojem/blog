@@ -3281,3 +3281,105 @@ NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapp
   
 config/routes.rb:3:in `block in <top (required)>'
 config/routes.rb:1:in `<top (required)>'
+Started GET "/articles" for 127.0.0.1 at 2018-05-30 16:30:00 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (13.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (295.0ms)
+Completed 200 OK in 1801ms (Views: 1480.9ms | ActiveRecord: 35.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-30 16:42:40 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (553.0ms)
+  Rendered articles/new.html.erb within layouts/application (645.0ms)
+Completed 200 OK in 850ms (Views: 816.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-05-30 16:42:53 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TfLSJm/8ph3boln24fT80+nP7CfaSVeTr/64hhQ1B9xPnqmGLcY9bq2NYzmCyAVuMHE32uqVJNaQ+S4UqEBbkw==", "article"=>{"title"=>"Hello1234", "text"=>"hello4321"}, "commit"=>"Create Article"}
+Filter chain halted as #<Proc:0x000000119281f8@C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.1.4/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-05-30 16:42:53 +0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TfLSJm/8ph3boln24fT80+nP7CfaSVeTr/64hhQ1B9xPnqmGLcY9bq2NYzmCyAVuMHE32uqVJNaQ+S4UqEBbkw==", "article"=>{"title"=>"Hello1234", "text"=>"hello4321"}, "commit"=>"Create Article"}
+  [1m[35m (11.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello1234"], ["text", "hello4321"], ["created_at", "2018-05-30 13:42:53.529635"], ["updated_at", "2018-05-30 13:42:53.529635"]]
+  [1m[35m (58.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/6
+Completed 302 Found in 139ms (ActiveRecord: 70.0ms)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2018-05-30 16:42:53 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 6]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (44.0ms)
+  Rendered articles/show.html.erb within layouts/application (123.0ms)
+Completed 200 OK in 1014ms (Views: 945.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/articles/6/comments" for 127.0.0.1 at 2018-05-30 16:43:22 +0300
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ew6XoAVHhaD3wsNsWDMzAkKM6u5iifuMeQaRV2ciqfGBFLVrXsMekv7oPevG39a7ZHrs365Fo0R9yoTg8ScAsg==", "comment"=>{"commenter"=>"Yeah i see its", "body"=>"hello"}, "commit"=>"Create Comment", "article_id"=>"6"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", "Yeah i see its"], ["body", "hello"], ["article_id", 6], ["created_at", "2018-05-30 13:43:22.323676"], ["updated_at", "2018-05-30 13:43:22.323676"]]
+  [1m[35m (76.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/6
+Completed 302 Found in 90ms (ActiveRecord: 78.0ms)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2018-05-30 16:43:22 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 6]]
+  Rendered collection of comments/_comment.html.erb [1 times] (3.0ms)
+  Rendered comments/_form.html.erb (44.0ms)
+  Rendered articles/show.html.erb within layouts/application (104.0ms)
+Completed 200 OK in 578ms (Views: 559.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/6/edit" for 127.0.0.1 at 2018-05-30 16:43:34 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 206ms (Views: 148.6ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/articles/6/comments/4" for 127.0.0.1 at 2018-05-30 16:43:40 +0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rHZ0qBixsCEItm7SdbdtoOOAw8k/yYFRGLLSg19Vzp8+bFZjQzUrEwGckFXrW4gZxXbF+PMF2Zkcfsc0yVBn3A==", "article_id"=>"6", "id"=>"4"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."article_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["article_id", 6], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 4]]
+  [1m[35m (78.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/6
+Completed 302 Found in 104ms (ActiveRecord: 80.0ms)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2018-05-30 16:43:40 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 6]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 227ms (Views: 208.3ms | ActiveRecord: 0.0ms)
+
+
