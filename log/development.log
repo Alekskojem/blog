@@ -3218,3 +3218,66 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 277ms (Views: 258.4ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/articles/3/edit" for 127.0.0.1 at 2018-05-30 14:18:04 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+Filter chain halted as #<Proc:0x000000100b5f58@C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.1.4/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 5ms
+
+
+Started GET "/articles/3/edit" for 127.0.0.1 at 2018-05-30 14:18:16 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+Filter chain halted as #<Proc:0x000000100b5f58@C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.1.4/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 24ms
+
+
+Started GET "/articles/3/edit" for 127.0.0.1 at 2018-05-30 14:18:34 +0300
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (30.0ms)
+  Rendered articles/edit.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 849ms (Views: 670.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-05-30 14:18:41 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 249ms (Views: 185.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-30 14:18:43 +0300
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x000000100b5f58@C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.1.4/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-05-30 14:18:43 +0300
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (3.0ms)
+  Rendered articles/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 208ms (Views: 180.1ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+Started GET "/articles" for 127.0.0.1 at 2018-05-30 16:11:28 +0300
+  
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x000000069c2ec0>):
+  
+config/routes.rb:3:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
