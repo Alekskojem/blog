@@ -3086,3 +3086,51 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 249ms (Views: 229.8ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 13:08:20 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [2 times] (4.0ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered articles/show.html.erb within layouts/application (370.0ms)
+Completed 200 OK in 1008ms (Views: 859.8ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/articles/5/comments/2" for 127.0.0.1 at 2018-05-30 13:08:34 +0300
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wBU0t6fBQqQaJd5h57F9Z9M9bR/T5+/9Sj5AnhB13q9SDxZ8/EXZlhMPIOZ5XZje9ctrLh8rtzVO8lUphnB37A==", "article_id"=>"5", "id"=>"2"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."article_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["article_id", 5], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (14.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 2]]
+  [1m[35m (99.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 127ms (ActiveRecord: 114.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 13:08:35 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [1 times] (12.0ms)
+  Rendered comments/_form.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (60.0ms)
+Completed 200 OK in 247ms (Views: 218.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 13:08:38 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [1 times] (21.0ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered articles/show.html.erb within layouts/application (60.0ms)
+Completed 200 OK in 290ms (Views: 231.3ms | ActiveRecord: 1.0ms)
+
+
