@@ -3051,3 +3051,38 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 178ms (Views: 160.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 12:56:06 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered articles/show.html.erb within layouts/application (62.0ms)
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_comment with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "C:/Projects/blog/app/views"
+):
+     9: </p>
+    10: 
+    11: <h2>Comments</h2>
+    12: <%= render @article.comments %>
+    13:   
+    14: <h2>Add a comment:</h2>
+    15: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:12:in `_app_views_articles_show_html_erb___843580248_122339040'
+Started GET "/articles/5" for 127.0.0.1 at 2018-05-30 13:00:12 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [2 times] (31.0ms)
+  Rendered comments/_form.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 249ms (Views: 229.8ms | ActiveRecord: 1.0ms)
+
+
