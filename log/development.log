@@ -3383,3 +3383,15 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 227ms (Views: 208.3ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+Started GET "/articles" for 127.0.0.1 at 2018-06-11 15:47:55 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (169.0ms)
+Completed 200 OK in 6890ms (Views: 6020.8ms | ActiveRecord: 9.0ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at C:/Projects/blog/config/initializers/new_framework_defaults.rb:21)
